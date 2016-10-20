@@ -1,0 +1,30 @@
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar>
+            <div padding-top text-center>
+                <button clear menuClose>
+                    <img src="http://www.gravatar.com/avatar?d=mm&s=140">
+                </button>
+                <h6>Hi, Bob</h6>
+                <h6 whtext>email@yahoo.com</h6>
+            </div>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-list>
+            <ion-item>
+                <ion-icon name="leaf" item-left></ion-icon>
+                Menu 1
+                <ion-icon name="rose" item-right></ion-icon>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="leaf" item-left></ion-icon>
+                Menu 2
+                <ion-icon name="rose" item-right></ion-icon>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
