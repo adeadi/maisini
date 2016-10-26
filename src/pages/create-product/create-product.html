@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Sell</ion-title>
+        <ion-buttons end>
+            <button ion-button>
+                <ion-icon name="checkmark"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="page-create-product">
+    <ion-list>
+        <ion-item-divider>Details</ion-item-divider>
+        <ion-item>
+            <ion-icon name='pin' item-left></ion-icon>
+            <ion-label>{{location}}</ion-label>
+        </ion-item>
+        <ion-item (click)="selectCategory()">
+            <ion-icon name='reorder' item-left></ion-icon>
+            <ion-label>{{category}}</ion-label>
+        </ion-item>
+        <ion-item-divider>What are you selling ?</ion-item-divider>
+        <ion-item>
+            <ion-label stacked>Title</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Description</ion-label>
+            <ion-textarea> </ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Price (MYR)</ion-label>
+            <ion-input type="number"></ion-input>
+        </ion-item>
+        <ion-item-divider light>Add On</ion-item-divider>
+        <ion-item>
+            <ion-label>Featured Ads (RM8.00)</ion-label>
+            <ion-checkbox secondary checked="false"></ion-checkbox>
+            <ion-icon name='information-circle' item-right></ion-icon>
+        </ion-item>
+        <ion-item>
+            <ion-label>Fast Ads (RM5.00)</ion-label>
+            <ion-checkbox secondary checked="false"></ion-checkbox>
+            <ion-icon name='information-circle' item-right></ion-icon>
+        </ion-item>
+        <ion-item-divider>Item photos</ion-item-divider>
+        <ion-item>
+            <ion-slides>
+                <ion-slide>
+                    <img src="assets/img/captain_america.jpg" />
+                </ion-slide>
+                <ion-slide>
+                    <img src="assets/img/jobs_services_category.jpg" />
+                </ion-slide>
+                <ion-slide>
+                    <img src="assets/img/pets_category.jpg" />
+                </ion-slide>
+            </ion-slides>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="camera" item-left></ion-icon>
+            <ion-icon name="image" item-right></ion-icon>
+        </ion-item>
+    </ion-list>
+</ion-content>

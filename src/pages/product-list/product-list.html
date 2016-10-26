@@ -1,0 +1,299 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons start>
+            <button (click)="goBack()" ion-button>
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-searchbar></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-product-list">
+    <div>
+        <ion-segment color="gray">
+            <ion-segment-button value="Category">
+                Category
+            </ion-segment-button>
+            <ion-segment-button value="Hits">
+                Top Hits
+            </ion-segment-button>
+            <ion-segment-button value="Sort">
+                Sort / Filter
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+    <ion-row>
+        <ion-col width-50>
+            <ion-card>
+                <ion-slides (click)="openProductDetails()">
+                    <ion-slide>
+                        <img src="assets/img/captain_america.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/jobs_services_category.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/pets_category.jpg" />
+                    </ion-slide>
+                </ion-slides>
+                <ion-card-content (click)="openProductDetails()">
+                    <p class="item-title">Title Item a b c d e f g h i j k l m n oo</p>
+                    <p class="item-time ">
+                        <ion-icon name="time"></ion-icon> 23 min ago</p>
+                    <p class="item-price">RM120</p>
+                </ion-card-content>
+                <ion-item>
+                    <ion-icon color="danger" name='heart' small item-left></ion-icon>
+                    <ion-badge color="favorite" small item-left>260k</ion-badge>
+                    <ion-icon color="primary" name='md-more' small item-right></ion-icon>
+                </ion-item>
+            </ion-card>
+        </ion-col>
+        <ion-col width-50>
+            <ion-card>
+                <ion-slides (click)="openProductDetails()">
+                    <ion-slide>
+                        <img src="assets/img/captain_america.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/jobs_services_category.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/pets_category.jpg" />
+                    </ion-slide>
+                </ion-slides>
+                <ion-card-content (click)="openProductDetails()">
+                    <p class="item-title">Title Item a b c d e f g h i j k l m n oo</p>
+                    <p class="item-time ">
+                        <ion-icon name="time"></ion-icon> 30 min ago</p>
+                    <p class="item-price">RM120</p>
+                </ion-card-content>
+                <ion-item>
+                    <ion-icon color="danger" name='heart' small item-left></ion-icon>
+                    <ion-badge color="favorite" item-left>260k</ion-badge>
+                    <ion-icon color="primary" name='md-more' small item-right></ion-icon>
+                </ion-item>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col width-50>
+            <ion-card>
+                <ion-slides (click)="openProductDetails()">
+                    <ion-slide>
+                        <img src="assets/img/captain_america.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/jobs_services_category.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/pets_category.jpg" />
+                    </ion-slide>
+                </ion-slides>
+                <ion-card-content (click)="openProductDetails()">
+                    <p class="item-title">Title Item a b c d e f g h i j k l m n oo</p>
+                    <p class="item-time ">
+                        <ion-icon name="time"></ion-icon> 30 min ago</p>
+                    <p class="item-price">RM120</p>
+                </ion-card-content>
+                <ion-item>
+                    <ion-icon color="danger" name='heart' small item-left></ion-icon>
+                    <ion-badge color="favorite" small item-left>260k</ion-badge>
+                    <ion-icon color="primary" name='md-more' small item-right></ion-icon>
+                </ion-item>
+            </ion-card>
+        </ion-col>
+        <ion-col width-50>
+            <ion-card>
+                <ion-slides (click)="openProductDetails()">
+                    <ion-slide>
+                        <img src="assets/img/captain_america.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/jobs_services_category.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/pets_category.jpg" />
+                    </ion-slide>
+                </ion-slides>
+                <ion-card-content (click)="openProductDetails()">
+                    <p class="item-title">Title Item a b c d e f g h i j k l m n oo</p>
+                    <p class="item-time ">
+                        <ion-icon name="time"></ion-icon> 30 min ago</p>
+                    <p class="item-price">RM120</p>
+                </ion-card-content>
+                <ion-item>
+                    <ion-icon color="danger" name='heart' small item-left></ion-icon>
+                    <ion-badge color="favorite" item-left>260k</ion-badge>
+                    <ion-icon color="primary" name='md-more' small item-right></ion-icon>
+                </ion-item>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col width-50>
+            <ion-card>
+                <ion-slides (click)="openProductDetails()">
+                    <ion-slide>
+                        <img src="assets/img/captain_america.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/jobs_services_category.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/pets_category.jpg" />
+                    </ion-slide>
+                </ion-slides>
+                <ion-card-content (click)="openProductDetails()">
+                    <p class="item-title">Title Item a b c d e f g h i j k l m n oo</p>
+                    <p class="item-time ">
+                        <ion-icon name="time"></ion-icon> 30 min ago</p>
+                    <p class="item-price">RM120</p>
+                </ion-card-content>
+                <ion-item>
+                    <ion-icon color="danger" name='heart' small item-left></ion-icon>
+                    <ion-badge color="favorite" item-left>260k</ion-badge>
+                    <ion-icon color="primary" name='md-more' small item-right></ion-icon>
+                </ion-item>
+            </ion-card>
+        </ion-col>
+        <ion-col width-50>
+            <ion-card>
+                <ion-slides (click)="openProductDetails()">
+                    <ion-slide>
+                        <img src="assets/img/captain_america.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/jobs_services_category.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/pets_category.jpg" />
+                    </ion-slide>
+                </ion-slides>
+                <ion-card-content (click)="openProductDetails()">
+                    <p class="item-title">Title Item a b c d e f g h i j k l m n oo</p>
+                    <p class="item-time ">
+                        <ion-icon name="time"></ion-icon> 30 min ago</p>
+                    <p class="item-price">RM120</p>
+                </ion-card-content>
+                <ion-item>
+                    <ion-icon color="danger" name='heart' small item-left></ion-icon>
+                    <ion-badge color="favorite" item-left>260k</ion-badge>
+                    <ion-icon color="primary" name='md-more' small item-right></ion-icon>
+                </ion-item>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col width-50>
+            <ion-card>
+                <ion-slides (click)="openProductDetails()">
+                    <ion-slide>
+                        <img src="assets/img/captain_america.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/jobs_services_category.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/pets_category.jpg" />
+                    </ion-slide>
+                </ion-slides>
+                <ion-card-content (click)="openProductDetails()">
+                    <p class="item-title">Title Item a b c d e f g h i j k l m n oo</p>
+                    <p class="item-time ">
+                        <ion-icon name="time"></ion-icon> 30 min ago</p>
+                    <p class="item-price">RM120</p>
+                </ion-card-content>
+                <ion-item>
+                    <ion-icon color="danger" name='heart' small item-left></ion-icon>
+                    <ion-badge color="favorite" item-left>260k</ion-badge>
+                    <ion-icon color="primary" name='md-more' small item-right></ion-icon>
+                </ion-item>
+            </ion-card>
+        </ion-col>
+        <ion-col width-50>
+            <ion-card>
+                <ion-slides (click)="openProductDetails()">
+                    <ion-slide>
+                        <img src="assets/img/captain_america.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/jobs_services_category.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/pets_category.jpg" />
+                    </ion-slide>
+                </ion-slides>
+                <ion-card-content (click)="openProductDetails()">
+                    <p class="item-title">Title Item a b c d e f g h i j k l m n oo</p>
+                    <p class="item-time ">
+                        <ion-icon name="time"></ion-icon> 30 min ago</p>
+                    <p class="item-price">RM120</p>
+                </ion-card-content>
+                <ion-item>
+                    <ion-icon color="danger" name='heart' small item-left></ion-icon>
+                    <ion-badge color="favorite" item-left>260k</ion-badge>
+                    <ion-icon color="primary" name='md-more' small item-right></ion-icon>
+                </ion-item>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col width-50>
+            <ion-card>
+                <ion-slides (click)="openProductDetails()">
+                    <ion-slide>
+                        <img src="assets/img/captain_america.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/jobs_services_category.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/pets_category.jpg" />
+                    </ion-slide>
+                </ion-slides>
+                <ion-card-content (click)="openProductDetails()">
+                    <p class="item-title">Title Item a b c d e f g h i j k l m n oo</p>
+                    <p class="item-time ">
+                        <ion-icon name="time"></ion-icon> 30 min ago</p>
+                    <p class="item-price">RM120</p>
+                </ion-card-content>
+                <ion-item>
+                    <ion-icon color="danger" name='heart' small item-left></ion-icon>
+                    <ion-badge color="favorite" item-left>260k</ion-badge>
+                    <ion-icon color="primary" name='md-more' small item-right></ion-icon>
+                </ion-item>
+            </ion-card>
+        </ion-col>
+        <ion-col width-50>
+            <ion-card>
+                <ion-slides (click)="openProductDetails()">
+                    <ion-slide>
+                        <img src="assets/img/captain_america.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/jobs_services_category.jpg" />
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/pets_category.jpg" />
+                    </ion-slide>
+                </ion-slides>
+                <ion-card-content (click)="openProductDetails()">
+                    <p class="item-title">Title Item a b c d e f g h i j k l m n oo</p>
+                    <p class="item-time ">
+                        <ion-icon name="time"></ion-icon> 30 min ago</p>
+                    <p class="item-price">RM120</p>
+                </ion-card-content>
+                <ion-item>
+                    <ion-icon color="danger" name='heart' small item-left></ion-icon>
+                    <ion-badge color="favorite" item-left>260k</ion-badge>
+                    <ion-icon color="primary" name='md-more' small item-right></ion-icon>
+                </ion-item>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+    <ion-fab right bottom>
+        <button (click)="openCreateProduct()" ion-fab color="gray"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+</ion-content>

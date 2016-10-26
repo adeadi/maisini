@@ -1,34 +1,24 @@
 <ion-header>
-    <ion-navbar>
-        <ion-title>Ionic Blank</ion-title>
-        <button menuToggle>
-            <ion-icon name="menu"></ion-icon>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle icon-only>
+            <ion-icon name='menu'></ion-icon>
         </button>
-<!--        <ion-buttons end>
-            <button ion-button (click)="addMarker()"><ion-icon name="add"></ion-icon>Add Marker</button>
-        </ion-buttons>-->
+        <ion-title>Maisini</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <div id="map"></div>
     <ion-fab right bottom>
-        <button ion-fab color="light">
-            <ion-icon name="arrow-dropleft"></ion-icon>
-        </button>
+        <button ion-fab color="primary"><ion-icon name="arrow-dropleft"></ion-icon></button>
         <ion-fab-list side="left">
-            <button ion-fab>
-                <ion-icon name="logo-facebook"></ion-icon>
-            </button>
-            <button ion-fab>
-                <ion-icon name="logo-twitter"></ion-icon>
-            </button>
-            <button ion-fab>
-                <ion-icon name="logo-vimeo"></ion-icon>
-            </button>
-            <button ion-fab>
-                <ion-icon name="logo-googleplus"></ion-icon>
-            </button>
+            <button (click)="openCreateProduct()" ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
+            <button (click)="openCategoryModal()" ion-fab color="primary"><ion-icon name="trending-up"></ion-icon></button>
+<!--            <button (click)="openRangeLocationPopover()" ion-fab color="primary"><ion-icon name="options"></ion-icon></button>-->
+            <button (click)="openCategoryModal()" ion-fab color="primary"><ion-icon name="reorder"></ion-icon></button>
         </ion-fab-list>
+    </ion-fab>
+    <ion-fab left bottom>
+        <button (click)="openProductList()" ion-fab color="gray"><ion-icon name="apps" color="white"></ion-icon></button>
     </ion-fab>
 </ion-content>

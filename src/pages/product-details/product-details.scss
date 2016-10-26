@@ -1,0 +1,30 @@
+ion-app._gmaps_cdv_ .nav-decor {
+    background-color: transparent !important;
+}
+
+.page-product-details {
+    #productMap {
+        height: 85%;
+    }
+    ion-card {
+        position: relative;
+        border-radius: 4px;
+    }
+    ion-card ion-card-content {
+        padding: 10px 2px 2px 5px;
+    }
+    img {
+        height: 250px;
+        width: 100%;
+    }
+    .item-price {
+        color: $favorite;
+        font-weight: bold;
+    }
+    .item-badge {
+        color: $favorite
+    }
+    ion-icon {
+        color: $primary;
+    }
+}

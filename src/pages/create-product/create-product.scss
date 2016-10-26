@@ -1,0 +1,17 @@
+.page-create-product {
+    background-color: #fcfcfc;
+    ion-item-divider {
+        color: $white;
+        background-color: $gray;
+    }
+    ion-item {
+        background-color: #fff;
+        img {
+            height: 250px;
+            width: 100%;
+        }
+        ion-icon {
+            color: #50A1DA;
+        }
+    }
+}

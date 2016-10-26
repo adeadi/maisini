@@ -3,6 +3,9 @@ import {
 } from '@angular/core';
 import {
     NavController,
+    ModalController,
+    PopoverController,
+    NavParams,
     Platform
 } from 'ionic-angular';
 import {
@@ -13,6 +16,18 @@ import {
     GoogleMapsMarker,
     Geolocation
 } from 'ionic-native';
+import {
+    ListCategoryModal
+} from '../list-category-modal/list-category-modal';
+import {
+    ProductList
+} from '../product-list/product-list';
+import {
+    CreateProduct
+} from '../create-product/create-product';
+import {
+    RangeLocationModal
+} from '../range-location-modal/range-location-modal';
 
 @Component({
     selector: 'page-home',
@@ -21,10 +36,28 @@ import {
 export class HomePage {
     map: GoogleMap;
 
-    constructor(public navCtrl: NavController, public platform: Platform) {
+    constructor(public navCtrl: NavController, public platform: Platform, public modalCtrl: ModalController, public popoverCtrl: PopoverController) {
         platform.ready().then(() => {
             this.loadMap();
         });
+    }
+
+    openCategoryModal() {
+        let modal = this.modalCtrl.create(ListCategoryModal);
+        modal.present();
+    }
+
+    openRangeLocationPopover() {
+        let popover = this.popoverCtrl.create(RangeLocationModal);
+        popover.present();
+    }
+
+    openProductList() {
+        this.navCtrl.push(ProductList);
+    }
+
+    openCreateProduct() {
+        this.navCtrl.push(CreateProduct);
     }
 
     loadMap() {

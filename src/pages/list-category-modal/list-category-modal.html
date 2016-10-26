@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>
+            Description
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+        <span showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding class="page-list-category-modal">
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-item-group *ngFor="let item of items; let parent = index">
+        <ion-item-divider light>{{item.category}}</ion-item-divider>
+        <ion-item *ngFor="let subCategory of item['subCategory']; let idx = index" (click)="selectedArea(parent,idx)">{{subCategory}}</ion-item>
+    </ion-item-group>
+</ion-content>

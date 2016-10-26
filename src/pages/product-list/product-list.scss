@@ -1,0 +1,35 @@
+.page-product-list {
+    background-color: #fcfcfc;
+    ion-col {
+        padding: 0px;
+    }
+    .card-md {
+        width: calc(100% - 10px);
+        margin: 10px 10px 0px 5px;
+    }
+    ion-card {
+        position: relative;
+        border-radius: 4px;
+    }
+    ion-card ion-card-content {
+        padding: 10px 2px 2px 5px;
+    }
+    .item-title {
+        font-size: 1.5rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .item-price {
+        font-size: 1.0rem;
+        font-weight: bold;
+        color: #69BB7B;
+    }
+    .item-time {
+        font-size: 1.0rem;
+    }
+    img {
+        height: 150px;
+        width: 100%;
+    }
+}
