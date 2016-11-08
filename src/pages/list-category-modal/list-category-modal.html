@@ -17,4 +17,9 @@
         <ion-item-divider light>{{item.category}}</ion-item-divider>
         <ion-item *ngFor="let subCategory of item['subCategory']; let idx = index" (click)="selectedArea(parent,idx)">{{subCategory}}</ion-item>
     </ion-item-group>
+
+    <ion-item-group>
+        <ion-item-divider light>Test</ion-item-divider>
+        <ion-item (click)="dismiss()">Test Category</ion-item>
+    </ion-item-group>
 </ion-content>

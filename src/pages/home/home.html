@@ -1,24 +1,43 @@
 <ion-header>
     <ion-navbar color="primary">
-        <button ion-button menuToggle icon-only>
-            <ion-icon name='menu'></ion-icon>
-        </button>
         <ion-title>Maisini</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <div id="map"></div>
-    <ion-fab right bottom>
-        <button ion-fab color="primary"><ion-icon name="arrow-dropleft"></ion-icon></button>
-        <ion-fab-list side="left">
-            <button (click)="openCreateProduct()" ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
-            <button (click)="openCategoryModal()" ion-fab color="primary"><ion-icon name="trending-up"></ion-icon></button>
-<!--            <button (click)="openRangeLocationPopover()" ion-fab color="primary"><ion-icon name="options"></ion-icon></button>-->
-            <button (click)="openCategoryModal()" ion-fab color="primary"><ion-icon name="reorder"></ion-icon></button>
-        </ion-fab-list>
-    </ion-fab>
-    <ion-fab left bottom>
-        <button (click)="openProductList()" ion-fab color="gray"><ion-icon name="apps" color="white"></ion-icon></button>
-    </ion-fab>
+    <div id="map">
+        <!--
+        <ion-fab right bottom>
+            <button ion-fab color="primary" (click)="setMapClickable(isClickable)"><ion-icon name="arrow-dropleft"></ion-icon></button>
+            <ion-fab-list side="left">
+                <button (click)="openCreateProduct()" ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
+                <button (click)="openCategoryModal()" ion-fab color="primary"><ion-icon name="trending-up"></ion-icon></button>
+                            <button (click)="openRangeLocationPopover()" ion-fab color="primary"><ion-icon name="options"></ion-icon></button>
+                <button (click)="openCategoryModal()" ion-fab color="primary"><ion-icon name="reorder"></ion-icon></button>
+            </ion-fab-list>
+        </ion-fab>
+        <ion-fab left bottom>
+            <button (click)="openProductList()" ion-fab color="gray"><ion-icon name="apps" color="white"></ion-icon></button>
+        </ion-fab>
+-->
+    </div>
 </ion-content>
+
+<ion-footer>
+    <ion-toolbar color="gray">
+        <ion-segment>
+            <ion-segment-button (click)="openProductList()">
+                <ion-icon name="apps" color="primary"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button (click)="openCategoryModal()">
+                <ion-icon name="reorder" color="white"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button (click)="openCategoryModal()">
+                <ion-icon name="trending-up" color="white"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button (click)="openProductLocation()">
+                <ion-icon name="add" color="white"></ion-icon>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-footer>

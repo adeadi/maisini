@@ -5,6 +5,7 @@ import {
     NavController,
     ModalController,
     PopoverController,
+    LoadingController,
     NavParams,
     Platform
 } from 'ionic-angular';
@@ -28,22 +29,42 @@ import {
 import {
     RangeLocationModal
 } from '../range-location-modal/range-location-modal';
+import {
+    ProductLocation
+} from '../product-location/product-location';
 
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
 })
 export class HomePage {
+    loading: any;
     map: GoogleMap;
+    isClickable = false;
 
-    constructor(public navCtrl: NavController, public platform: Platform, public modalCtrl: ModalController, public popoverCtrl: PopoverController) {
+    constructor(public navCtrl: NavController, public params: NavParams, public platform: Platform, public modalCtrl: ModalController, public popoverCtrl: PopoverController, public loadingCtrl: LoadingController) {
+        this.loading = this.loadingCtrl.create({
+            content: 'Loading...'
+        });
+        this.isClickable = this.params.get('isClickable');
+        console.log(this.isClickable);
+
         platform.ready().then(() => {
             this.loadMap();
         });
     }
 
+    setMapClickable(val) {
+        this.map.setClickable(!val);
+        this.isClickable = !val;
+    }
+
     openCategoryModal() {
+        this.map.setClickable(false);
         let modal = this.modalCtrl.create(ListCategoryModal);
+        modal.onDidDismiss(data => {
+            this.map.setClickable(true);
+        });
         modal.present();
     }
 
@@ -56,11 +77,12 @@ export class HomePage {
         this.navCtrl.push(ProductList);
     }
 
-    openCreateProduct() {
-        this.navCtrl.push(CreateProduct);
+    openProductLocation() {
+        this.navCtrl.push(ProductLocation);
     }
 
     loadMap() {
+        this.loading.present();
         Geolocation.getCurrentPosition().then((position) => {
             let location = new GoogleMapsLatLng(position.coords.latitude, position.coords.longitude);
 
@@ -69,8 +91,7 @@ export class HomePage {
                 'controls': {
                     'compass': true,
                     'myLocationButton': true,
-                    'indoorPicker': true,
-                    'zoom': true
+                    'indoorPicker': true
                 },
                 'gestures': {
                     'scroll': true,
@@ -97,7 +118,7 @@ export class HomePage {
                         'font-weight': 'bold',
                         'color': 'red'
                     },
-                    icon: 'blue'
+                    icon: 'blue',
                 };
                 this.map.addMarker(markerOptions).then(
                     (marker: GoogleMapsMarker) => {
@@ -110,12 +131,15 @@ export class HomePage {
                         });
                     }
                 );
-
                 console.log('Map is ready!');
+                this.loading.dismiss();
             });
 
         }, (err) => {
+            console.log("map error");
             console.log(err);
+            this.loading.dismiss();
         });
+        this.loading.dismiss();
     }
 }

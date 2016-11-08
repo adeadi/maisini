@@ -7,6 +7,9 @@ import { ProductList } from '../pages/product-list/product-list';
 import { CreateProduct } from '../pages/create-product/create-product';
 import { ProductDetails } from '../pages/product-details/product-details';
 import { RangeLocationModal } from '../pages/range-location-modal/range-location-modal';
+import { ProductLocation } from '../pages/product-location/product-location';
+import { ApiService } from '../providers/api-service';
+import { GoogleMaps } from '../providers/google-maps';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,8 @@ import { RangeLocationModal } from '../pages/range-location-modal/range-location
     ProductList,
     CreateProduct,
     ProductDetails,
-    RangeLocationModal
+    RangeLocationModal,
+    ProductLocation
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -29,8 +33,9 @@ import { RangeLocationModal } from '../pages/range-location-modal/range-location
     ProductList,
     CreateProduct,
     ProductDetails,
-    RangeLocationModal
+    RangeLocationModal,
+    ProductLocation
   ],
-  providers: []
+  providers: [GoogleMaps]
 })
 export class AppModule {}
