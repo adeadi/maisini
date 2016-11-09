@@ -15,7 +15,7 @@ import {
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class GoogleMaps {
+export class GoogleMapsService {
     public map: GoogleMap;
     private location: any;
 
@@ -82,7 +82,5 @@ export class GoogleMaps {
             );
             console.log('Map is ready!');
         });
-
-        return this.map;
     }
 }

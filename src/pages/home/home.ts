@@ -15,7 +15,8 @@ import {
     GoogleMapsLatLng,
     GoogleMapsMarkerOptions,
     GoogleMapsMarker,
-    Geolocation
+    Geolocation,
+    LocationAccuracy
 } from 'ionic-native';
 import {
     ListCategoryModal
@@ -41,8 +42,12 @@ export class HomePage {
     loading: any;
     map: GoogleMap;
     isClickable = false;
+    location: any;
 
-    constructor(public navCtrl: NavController, public params: NavParams, public platform: Platform, public modalCtrl: ModalController, public popoverCtrl: PopoverController, public loadingCtrl: LoadingController) {
+    constructor(public navCtrl: NavController, public params: NavParams, public platform: Platform,
+        public modalCtrl: ModalController, public popoverCtrl: PopoverController,
+        public loadingCtrl: LoadingController) {
+
         this.loading = this.loadingCtrl.create({
             content: 'Loading...'
         });
@@ -83,63 +88,121 @@ export class HomePage {
 
     loadMap() {
         this.loading.present();
-        Geolocation.getCurrentPosition().then((position) => {
-            let location = new GoogleMapsLatLng(position.coords.latitude, position.coords.longitude);
-
-            this.map = new GoogleMap('map', {
-                'backgroundColor': 'white',
-                'controls': {
-                    'compass': true,
-                    'myLocationButton': true,
-                    'indoorPicker': true
-                },
-                'gestures': {
-                    'scroll': true,
-                    'tilt': true,
-                    'rotate': true,
-                    'zoom': true
-                },
-                'camera': {
-                    'latLng': location,
-                    'tilt': 30,
-                    'zoom': 15,
-                    'bearing': 50
-                }
-            });
-
-            this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
-                let markerOptions: GoogleMapsMarkerOptions = {
-                    position: location,
-                    title: 'Ionic Title\n is Awesome!',
-                    snippet: 'This is snippet',
-                    styles: {
-                        'text-align': 'center',
-                        'font-style': 'italic',
-                        'font-weight': 'bold',
-                        'color': 'red'
+        LocationAccuracy.canRequest().then((canRequest: boolean) => {
+            if (canRequest) {
+                LocationAccuracy.request(LocationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY).then(
+                    () => {
+                        console.log('Request successful');
+                        Geolocation.getCurrentPosition().then((position) => {
+                            this.location = new GoogleMapsLatLng(position.coords.latitude, position.coords.longitude);
+                            this.map = new GoogleMap('map', {
+                                'backgroundColor': 'white',
+                                'controls': {
+                                    'compass': true,
+                                    'myLocationButton': true,
+                                    'indoorPicker': true
+                                },
+                                'gestures': {
+                                    'scroll': true,
+                                    'tilt': true,
+                                    'rotate': true,
+                                    'zoom': true
+                                },
+                                'camera': {
+                                    'latLng': this.location,
+                                    'tilt': 30,
+                                    'zoom': 15,
+                                    'bearing': 50
+                                }
+                            });
+                            this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
+                                let markerOptions: GoogleMapsMarkerOptions = {
+                                    position: this.location,
+                                    title: 'Ionic Title\n is Awesome!',
+                                    snippet: 'This is snippet',
+                                    styles: {
+                                        'text-align': 'center',
+                                        'font-style': 'italic',
+                                        'font-weight': 'bold',
+                                        'color': 'red'
+                                    },
+                                    icon: 'blue',
+                                };
+                                this.map.addMarker(markerOptions).then(
+                                    (marker: GoogleMapsMarker) => {
+                                        marker.showInfoWindow();
+                                        marker.addEventListener(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+                                            alert("marker is clicked");
+                                        });
+                                        marker.addEventListener(GoogleMapsEvent.INFO_CLICK).subscribe(() => {
+                                            alert("InfoWindow is clicked");
+                                        });
+                                    }
+                                );
+                                console.log('Map is ready!');
+                            });
+                            this.loading.dismiss();
+                        }, (err) => {
+                            console.log("map error");
+                            console.log(err);
+                            this.loading.dismiss();
+                        });
                     },
-                    icon: 'blue',
-                };
-                this.map.addMarker(markerOptions).then(
-                    (marker: GoogleMapsMarker) => {
-                        marker.showInfoWindow();
-                        marker.addEventListener(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-                            alert("marker is clicked");
+                    error => {
+                        console.log('Error requesting location permissions', error);
+                        this.location = new GoogleMapsLatLng(3.1576024, 101.7096977);
+                        this.map = new GoogleMap('map', {
+                            'backgroundColor': 'white',
+                            'controls': {
+                                'compass': true,
+                                'myLocationButton': true,
+                                'indoorPicker': true
+                            },
+                            'gestures': {
+                                'scroll': true,
+                                'tilt': true,
+                                'rotate': true,
+                                'zoom': true
+                            },
+                            'camera': {
+                                'latLng': this.location,
+                                'tilt': 30,
+                                'zoom': 15,
+                                'bearing': 50
+                            }
                         });
-                        marker.addEventListener(GoogleMapsEvent.INFO_CLICK).subscribe(() => {
-                            alert("InfoWindow is clicked");
+                        this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {
+                            let markerOptions: GoogleMapsMarkerOptions = {
+                                position: this.location,
+                                title: 'Ionic Title\n is Awesome!',
+                                snippet: 'This is snippet',
+                                styles: {
+                                    'text-align': 'center',
+                                    'font-style': 'italic',
+                                    'font-weight': 'bold',
+                                    'color': 'red'
+                                },
+                                icon: 'blue',
+                            };
+                            this.map.addMarker(markerOptions).then(
+                                (marker: GoogleMapsMarker) => {
+                                    marker.showInfoWindow();
+                                    marker.addEventListener(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+                                        alert("marker is clicked");
+                                    });
+                                    marker.addEventListener(GoogleMapsEvent.INFO_CLICK).subscribe(() => {
+                                        alert("InfoWindow is clicked");
+                                    });
+                                }
+                            );
+                            console.log('Map is ready!');
                         });
+                        this.loading.dismiss();
                     }
                 );
-                console.log('Map is ready!');
-                this.loading.dismiss();
-            });
-
-        }, (err) => {
-            console.log("map error");
-            console.log(err);
-            this.loading.dismiss();
+            }
         });
-        this.loading.dismiss();
+
+
     }
 }

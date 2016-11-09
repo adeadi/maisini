@@ -9,7 +9,7 @@ import { ProductDetails } from '../pages/product-details/product-details';
 import { RangeLocationModal } from '../pages/range-location-modal/range-location-modal';
 import { ProductLocation } from '../pages/product-location/product-location';
 import { ApiService } from '../providers/api-service';
-import { GoogleMaps } from '../providers/google-maps';
+import { GoogleMapsService } from '../providers/google-maps-service';
 
 @NgModule({
   declarations: [
@@ -36,6 +36,6 @@ import { GoogleMaps } from '../providers/google-maps';
     RangeLocationModal,
     ProductLocation
   ],
-  providers: [GoogleMaps]
+  providers: [GoogleMapsService]
 })
 export class AppModule {}
